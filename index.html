@@ -1,1 +1,730 @@
-file:///C:/Users/pc/Desktop/RPKitabi%20index.html#
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RP Kitabi College Academic Research Lab</title>
+    <style>
+        /* CSS Variables for Blue/White Color Scheme */
+        :root {
+            --primary-blue: #004080;
+            --secondary-blue: #0059b3;
+            --light-bg: #f4f8fb;
+            --white: #ffffff;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --border-color: #e0e6ed;
+            --accent-blue: #cce0ff;
+            --gold-accent: #cfa86e; /* Added for the college overline */
+            --button-green: #004d28; /* Added for the green explore button */
+        }
+
+        /* Global Reset & Typography */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-blue);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--secondary-blue);
+        }
+
+        /* Navigation */
+        header {
+            background-color: rgba(0, 64, 128, 0.95); /* Slightly transparent to match modern feel */
+            backdrop-filter: blur(10px);
+            color: var(--white);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-weight: bold;
+            color: var(--white);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--white);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Layout Utility */
+        section {
+            padding: 5rem 5%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid var(--primary-blue);
+            display: inline-block;
+            padding-bottom: 0.5rem;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .bg-light {
+            background-color: var(--light-bg);
+        }
+
+        /* Hero Section - UPDATED TO MATCH UPLOADED IMAGE */
+        #home {
+            /* Using a dark forest placeholder image with a dark gradient overlay for text readability */
+            background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%), 
+                        url('https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            text-align: left; /* Changed from center to left */
+            padding: 12rem 5% 10rem 5%;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0; /* Remove auto margin to keep it left-aligned within the padding */
+        }
+
+        /* New Overline Styling for College Name */
+        .overline {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--gold-accent);
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .overline::before {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: var(--gold-accent);
+        }
+
+        #home h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            line-height: 1.1;
+        }
+
+        #home p {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            max-width: 850px;
+            line-height: 1.8;
+        }
+
+        .btn-green {
+            display: inline-block;
+            background-color: var(--button-green);
+            color: var(--white);
+            padding: 0.8rem 1.8rem;
+            border-radius: 4px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 2rem;
+            text-decoration: none;
+        }
+
+        .btn-green:hover {
+            background-color: #00331a;
+            color: var(--white);
+        }
+
+        /* Generic Grid & Cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .card-center {
+            text-align: center;
+        }
+
+        /* Team Avatars */
+        .avatar {
+            width: 120px;
+            height: 120px;
+            background-color: var(--light-bg);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary-blue);
+            border: 3px solid var(--primary-blue);
+        }
+
+        .role {
+            color: var(--secondary-blue);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .institution {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Publications Filter & List */
+        .filter-bar {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            border: 1px solid var(--border-color);
+        }
+
+        .filter-bar input, .filter-bar select {
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            flex: 1;
+            min-width: 150px;
+            font-family: inherit;
+        }
+
+        .pub-list {
+            list-style: none;
+        }
+
+        .pub-list li {
+            background: var(--white);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--primary-blue);
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .pub-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--primary-blue);
+        }
+
+        .pub-meta {
+            margin: 0.5rem 0;
+            display: flex;
+            gap: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .pub-meta span {
+            background: var(--light-bg);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            color: var(--secondary-blue);
+            font-weight: 500;
+        }
+
+        /* News Section */
+        .news-item {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .news-date {
+            min-width: 120px;
+            font-weight: bold;
+            color: var(--secondary-blue);
+            font-family: Georgia, serif;
+        }
+
+        /* Gallery Section */
+        .gallery-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .gallery-tabs button {
+            padding: 0.5rem 1.5rem;
+            background: var(--white);
+            border: 1px solid var(--primary-blue);
+            color: var(--primary-blue);
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-tabs button.active, .gallery-tabs button:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            background: var(--light-bg);
+            border-radius: 8px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--text-light);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+            color: var(--primary-blue);
+            border-color: var(--primary-blue);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-blue);
+            color: var(--white);
+        }
+
+        /* Contact Section */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 150px;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #002244; /* Darker blue for footer */
+            color: var(--white);
+            text-align: center;
+            padding: 3rem 5%;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: var(--accent-blue);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            nav ul {
+                justify-content: center;
+            }
+            #home h1 {
+                font-size: 2.8rem;
+            }
+            .news-item {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">KARIN</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#facilities">Facilities</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="overline">RP Kitabi College</div>
+                
+                <h1>Academic Research and Innovation Nexus (KARIN)</h1>
+                
+                <p><strong></strong> The Academic Research and Innovation Nexus (KARIN) at RP Kitabi College is a premier, interdisciplinary research collective dedicated to advancing the frontiers of biodiversity conservation, applied forestry, and sustainable tourism through rigorous empirical inquiry and applied innovation. Rooted in our institutional vision to lead environmental management within the Albertine Rift region, our group bridges the gap between theoretical exploration and practical execution. With current investigations spanning wildlife and landscape ecology, sustainable forest engineering, and the socio-economic dynamics of destination management, KARIN fosters an intellectually demanding and highly collaborative environment that continually drives methodological advancements.</p>
+                
+                <a href="#research" class="btn-green">Explore Our Research &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="research" class="bg-light">
+        <div class="container">
+            <h2 class="section-title">Research Themes</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Sustainable Forest & Wood Technology</h3>
+                    <p>Bridging forest ecology with practical execution, this theme investigates the entire lifecycle of forest resources. Current investigations explore the ecophysiology of managed plantations, sustainable harvesting methodologies, and advanced wood technology, aiming to optimize timber production while maintaining long-term environmental integrity.</p>
+                </div>
+                <div class="card">
+                    <h3>Wildlife & Landscape Ecology</h3>
+                    <p>Focusing on the empirical study of habitat dynamics, species conservation, and broad-scale landscape management. Research in this area translates ecological theory into practical interventions, seeking data-driven solutions to mitigate human-wildlife conflict and restore degraded ecosystems in high-priority conservation zones.</p>
+                </div>
+                <div class="card">
+                    <h3>Destination Management & Cultural Preservation</h3>
+                    <p>Examining the intersection of human activity, cultural heritage, and natural resource utilization. Research under this pillar focuses on developing innovative, low-impact tourism models that preserve cultural resources and uplift local economies, directly supporting regional destination management objectives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Innovation Projects</h2>
+            <div class="grid">
+                <div class="card">
+                    <p class="role">NSF Funded: 2024 - 2027</p>
+                    <h3>Project Nexus</h3>
+                    <p>A cross-institutional initiative to build the next generation of fault-tolerant sensor networks for remote environmental monitoring.</p>
+                    <a href="#" class="btn" style="margin-top: 1rem;">View Details</a>
+                </div>
+                <div class="card">
+                    <p class="role">Industry Collaboration: 2025 - 2026</p>
+                    <h3>Algorithmic Green-Shift</h3>
+                    <p>Partnering with tech industry leaders to audit and rewrite core cloud processing algorithms, reducing server energy consumption by projected 15%.</p>
+                    <a href="#" class="btn" style="margin-top: 1rem;">View Details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="publications" class="bg-light">
+        <div class="container">
+            <h2 class="section-title">Publications Repository</h2>
+            
+            <div class="filter-bar">
+                <input type="text" placeholder="Search by title or author...">
+                <select>
+                    <option>All Types</option>
+                    <option>Journal Article</option>
+                    <option>Conference Proceeding</option>
+                    <option>Book Chapter</option>
+                </select>
+                <select>
+                    <option>All Years</option>
+                    <option>2026</option>
+                    <option>2025</option>
+                    <option>2024</option>
+                    <option>2023</option>
+                </select>
+                <button class="btn">Search</button>
+            </div>
+
+            <ul class="pub-list">
+                <li>
+                    <div class="pub-title">Emerging Trends in Multidisciplinary Computing and Data Architecture</div>
+                    <div class="pub-meta">
+                        <span>Journal Article</span>
+                        <span>2025</span>
+                    </div>
+                    <p>Jenkins, S., & Rahman, A. — <em>Journal of Academic Research, 45(2), 112-130.</em></p>
+                </li>
+                <li>
+                    <div class="pub-title">Data-Driven Approaches to Sustainable Algorithmic Systems</div>
+                    <div class="pub-meta">
+                        <span>Conference Proceeding</span>
+                        <span>2024</span>
+                    </div>
+                    <p>O'Connor, M., & Jenkins, S. — <em>International Science Review, 12(4), 88-105.</em></p>
+                </li>
+                <li>
+                    <div class="pub-title">A Comprehensive Analysis of Algorithmic Efficiency Under Stress Constraints</div>
+                    <div class="pub-meta">
+                        <span>Journal Article</span>
+                        <span>2023</span>
+                    </div>
+                    <p>Rahman, A., O'Connor, M., & Jenkins, S. — <em>Proceedings of the Tech Scholars Conference, 15-22.</em></p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="team">
+        <div class="container">
+            <h2 class="section-title">Our Team</h2>
+            <div class="grid">
+                <div class="card card-center">
+                    <div class="avatar">SJ</div>
+                    <h3>Dr. Sarah Jenkins</h3>
+                    <p class="role">Principal Investigator (PI)</p>
+                    <p class="institution">RP Kitabi College</p>
+                </div>
+                <div class="card card-center">
+                    <div class="avatar">MO</div>
+                    <h3>Mark O'Connor</h3>
+                    <p class="role">Postdoctoral Researcher</p>
+                    <p class="institution">RP Kitabi College</p>
+                </div>
+                <div class="card card-center">
+                    <div class="avatar">AR</div>
+                    <h3>Aisha Rahman</h3>
+                    <p class="role">Ph.D. Candidate</p>
+                    <p class="institution">RP Kitabi College</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="facilities" class="bg-light">
+        <div class="container">
+            <h2 class="section-title">Core Facilities</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>High-Performance Computing Cluster</h3>
+                    <p>A dedicated 500-node Linux cluster equipped with state-of-the-art GPUs for deep learning, massive dataset processing, and climate simulation tasks.</p>
+                </div>
+                <div class="card">
+                    <h3>Hardware Prototyping Bay</h3>
+                    <p>A fully equipped electronics lab featuring 3D printers, FPGA boards, and soldering stations for developing custom environmental sensor nodes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="news">
+        <div class="container">
+            <h2 class="section-title">Latest News</h2>
+            <div>
+                <div class="news-item">
+                    <div class="news-date">March 15, 2026</div>
+                    <div>
+                        <h3>Lab Awarded New NSF Grant for Project Nexus</h3>
+                        <p>We are thrilled to announce that Dr. Jenkins and the team have secured a 3-year NSF grant to expand our research into fault-tolerant sensor networks.</p>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">February 02, 2026</div>
+                    <div>
+                        <h3>Aisha Rahman Successfully Defends Proposal</h3>
+                        <p>Congratulations to Ph.D. candidate Aisha Rahman on the successful defense of her dissertation proposal regarding algorithmic efficiency under stress constraints.</p>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">December 10, 2025</div>
+                    <div>
+                        <h3>New HPC Cluster Installed</h3>
+                        <p>Our computing capabilities have been significantly upgraded with the installation of our new 500-node GPU cluster in the primary facility.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="bg-light">
+        <div class="container">
+            <h2 class="section-title">Lab Gallery</h2>
+            
+            <div class="gallery-tabs">
+                <button class="active" onclick="filterGallery('all', this)">All</button>
+                <button onclick="filterGallery('fieldwork', this)">Fieldwork</button>
+                <button onclick="filterGallery('laboratory', this)">Laboratory</button>
+                <button onclick="filterGallery('team', this)">Team Life</button>
+            </div>
+
+            <div class="gallery-grid" id="gallery-container">
+                <div class="gallery-item" data-category="fieldwork">Fieldwork: Data Collection</div>
+                <div class="gallery-item" data-category="laboratory">Laboratory: Server Rack Setup</div>
+                <div class="gallery-item" data-category="team">Team Life: Conference 2025</div>
+                <div class="gallery-item" data-category="fieldwork">Fieldwork: Sensor Deployment</div>
+                <div class="gallery-item" data-category="laboratory">Laboratory: Prototyping Bay</div>
+                <div class="gallery-item" data-category="team">Team Life: Lab Retreat</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-form">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Dr. Jane Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Institutional Email</label>
+                        <input type="email" id="email" name="email" required placeholder="jane.doe@university.edu">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message / Inquiry</label>
+                        <textarea id="message" name="message" required placeholder="I am writing to inquire about your recent research..."></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 RP Kitabi College Academic Research Lab. All rights reserved. Open access data is licensed under CC BY 4.0.</p>
+    </footer>
+
+    <script>
+        function filterGallery(category, btnElement) {
+            // Update active button styling
+            const buttons = document.querySelectorAll('.gallery-tabs button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
+
+            // Filter the gallery items
+            const items = document.querySelectorAll('.gallery-item');
+            items.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
